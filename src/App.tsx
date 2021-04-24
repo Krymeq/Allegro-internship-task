@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Redirect, Switch } from 'react-router-dom';
 import { SearchPage } from './pages/search/search_page';
 import { Route } from 'react-router-dom';
-import './App.css';
+import './index.css';
 import { RepoListPage } from './pages/repo_list/repo_list_page';
 
 function App() {

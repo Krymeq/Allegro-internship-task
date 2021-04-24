@@ -1,0 +1,60 @@
+$gradient-begin-color: #085;
+$gradient-end-color: #0a9;
+$text-color: white;
+$disabled-color: #6ba;
+$hover-color: #3c9;
+$focus-color: #0c8;
+
+@mixin center-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin input-layout($width) {
+    background: none;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 50px;
+    width: $width;
+    border: 2px solid $text-color;
+    color: $text-color;
+
+    &::placeholder {
+        color: $disabled-color;
+    }
+
+    &:focus {
+        transition: all 0.1s ease-in-out;
+        box-shadow: 0 0 3px 2px $focus-color;
+    }
+}
+
+@mixin button-layout {
+    padding: 0;
+    background: none;
+    outline: none;
+    border: none;
+
+    a {
+        @include center-content();
+    }
+
+    &:not(:disabled) {
+        &:hover {
+            transition: all 0.13s ease-out;
+            cursor: pointer;
+            background-color: $hover-color;
+        }
+        a {
+            color: $text-color;
+        }
+    }
+
+    &:disabled {
+        a {
+            pointer-events: none;
+            color: $disabled-color;
+        }
+    }
+}
