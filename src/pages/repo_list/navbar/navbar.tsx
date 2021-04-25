@@ -8,13 +8,15 @@ export const Navbar = () => {
 
     return (
         <div className="navbar-root">
-            <div className="header-widescreen">
-                Github<span>Searcher</span>
-            </div>
+            <Link to="/search">
+                <div className="header-widescreen">
+                    Github<span>Searcher</span>
+                </div>
 
-            <div className="header-smallscreen">
-                G<span>S</span>
-            </div>
+                <div className="header-smallscreen">
+                    G<span>S</span>
+                </div>
+            </Link>
 
             <input
                 value={username}

@@ -10,6 +10,11 @@
     font-weight: 600;
     font-size: 20px;
 
+    a {
+        color: $text-color;
+        text-decoration: none;
+    }
+
     @media (min-width: 801px) {
         .header-smallscreen {
             display: none;
