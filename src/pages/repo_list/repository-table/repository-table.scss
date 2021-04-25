@@ -1,0 +1,12 @@
+.repository-table-root {
+    width: 100%;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding: 20px;
+    .table-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

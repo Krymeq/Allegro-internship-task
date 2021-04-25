@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+## Opis zadania 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Zadaniem było stworzenie aplikacji frontendowej umożliwiającej wyszukanie repozytoriów należących do danego użytkownika, posortowanych po ilości gwiazdek. 
 
-## Available Scripts
 
-In the project directory, you can run:
+## Instrukcja instalacji i uruchomienia
+---
 
-### `npm start`
+##### 1. Instalacja
+Aby zainstalować aplikację, należy po sklonowaniu repozytorium wykonać w katalogu głównym aplikacji polecenie `npm install`. Menedżer npm pobierze wszystkie potrzebne zależności, zainstaluje je i umożliwi uruchomienie aplikacji. 
+##### 2. Uruchomienie
+Aby uruchomić aplikację, należy w katalogu głównym aplikacji wykonać polecenie `npm start`. Po wystartowaniu serwera (na konsoli wyświetli się napis "Compiled successfully") aplikacja będzie dostępna w przeglądarce po wpisaniu adresu `localhost:3000`. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Funkcjonalność aplikacji
+---
+##### 1. Widok wyszukiwania użytkownika
+Jest to formularz umożliwiający wyszukanie użytkownika i przejście do widoku wyświetlającego jego repozytoria. Dostępny jest pod adresem `/search`.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+##### 2.Widok listy repozytoriów
+Widok ten, dostępny pod adresem `/repositories/:username` przedstawia repozytoria wyszukanego użytkownika. W przypadku wystąpienia błędu, takiego jak nieznalezienie użytkownika o podanym nicku czy przekroczenie dopuszczalnej ilości zapytań do serwera, na ekranie wyświetla się komunikat o błędzie. W górnej części ekranu znajduje się pole, którego można użyć do ponownego wyszukania użytkownika.
 
-### `npm test`
+_Adresy podawane są względem podstawowego URL na którym hostowana jest aplikacja (w przypadku uruchomienia lokalnie - localhost:3000). Użytkownika można wyszukać również bezpośrednio za pomocą URL - podstawiając za `:username` odpowiedni nick._
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Implementacja
+---
+Zadanie zaimplementowano we frameworku React z użyciem języka Typescript. Do nawigowania między podstronami użyto react-routera, natomiast zapytania wykonywane są za pomocą biblioteki Axios. W aplikacji zastosowano również spinner i ikony z biblioteki Material UI. Strona działa i wyświetla się poprawnie zarówno w Google Chrome, Mozilli Firefox, jak i na smartfonach (testowano Google Chrome na Androidzie). 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Uwagi i uproszczenia
+---
+Główna uwaga do rozwiązania dotyczy sposobu dokonania zapytania o repozytoria do API. Domyślnie zapytanie to zwraca do 30 repozytoriów. Liczbę tą za pomocą query params można zwiększyć do maksymalnie 100, co jednak jest nadal niewystarczające w przypadku kont zawierających dużą ilość projektów. Możliwe rozwiązania: 
+- Paginacja - API nie udostępnia możliwości sortowania repozytoriów według ilości gwiazdek po stronie serwera, stąd posortowane repozytoria byłyby jedynie w ramach jednej strony.
+- Pobranie ilości wszystkich repozytoriów przypisanych do danego konta, wykonanie odpowiedniej ilości asynchronicznych zapytań, scalenie ich wyników w `Promise.all()` i ostatecznie posortowanie takiej listy. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Ze względu na możliwe problemy z wydajnością i wysyłanie dużej ilości zapytań zdecydowano się na uproszczenie polegające na wyświetleniu pierwszej strony zawierającej 100 repozytoriów danego użytkownika.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Autor
+---
+[Mateusz Ksok](http://github.com/Krymeq)

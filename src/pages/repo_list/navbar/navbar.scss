@@ -4,6 +4,7 @@
     background: linear-gradient(45deg, $gradient-begin-color, 35%, $gradient-end-color);
     color: $text-color;
     padding: 12px;
+    padding-left: 24px;
     display: flex;
     align-items: center;
     font-weight: 600;
@@ -36,7 +37,7 @@
         border-radius: 8px;
         @include button-layout();
         a {
-            padding: 4px 6px;
+            padding: 4px;
         }
     }
 }

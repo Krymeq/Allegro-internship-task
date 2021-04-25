@@ -1,0 +1,6 @@
+@import "../../../global.scss";
+
+.loading-display-root {
+    @include center-content();
+    height: 80vh;
+}

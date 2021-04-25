@@ -1,0 +1,15 @@
+@import "../../global.scss";
+
+.repo-list-root {
+    display: flex;
+    flex-direction: column;
+
+    .content {
+        display: flex;
+        justify-content: center;
+
+        .MuiCircularProgress-svg {
+            color: $spinner-color;
+        }
+    }
+}
